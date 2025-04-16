@@ -1,4 +1,4 @@
-package pl.juhas.bnabd.model;
+package pl.juhas.bnabd.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

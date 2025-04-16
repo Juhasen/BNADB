@@ -4,13 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
-import pl.juhas.bnabd.model.Department;
-import pl.juhas.bnabd.model.Employee;
+import pl.juhas.bnabd.entity.Department;
+import pl.juhas.bnabd.entity.Employee;
 import pl.juhas.bnabd.repository.DepartmentRepository;
 import pl.juhas.bnabd.repository.EmployeeRepository;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
 
 @Component

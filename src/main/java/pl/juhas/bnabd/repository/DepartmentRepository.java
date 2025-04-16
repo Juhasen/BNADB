@@ -2,7 +2,7 @@ package pl.juhas.bnabd.repository;
 
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.repository.CrudRepository;
-import pl.juhas.bnabd.model.Department;
+import pl.juhas.bnabd.entity.Department;
 import java.util.List;
 
 public interface DepartmentRepository extends CrudRepository<Department, Long> {

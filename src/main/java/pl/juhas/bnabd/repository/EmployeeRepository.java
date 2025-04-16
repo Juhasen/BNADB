@@ -3,7 +3,7 @@ package pl.juhas.bnabd.repository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
-import pl.juhas.bnabd.model.Employee;
+import pl.juhas.bnabd.entity.Employee;
 
 import java.util.List;
 
