@@ -20,18 +20,19 @@ public class Employee {
     @JoinColumn(name = "department_id")
     private Department department;
 
+    @ManyToOne
+    @JoinColumn(name = "project_id")
+    private Project project;
+
     private String firstName;
 
     private String lastName;
 
     private BigDecimal salary;
 
-    public Employee(String firstName, String lastName, BigDecimal salary) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.salary = salary;
-    }
-
+    @Version
+    @Column(name = "OPTLOCK")
+    private int versionNum;
 
     @Override
     public String toString() {
