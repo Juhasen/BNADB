@@ -1,10 +1,18 @@
 package pl.juhas.bnabd.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.With;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Data
+@With
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 public class Department {
 
@@ -12,31 +20,19 @@ public class Department {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private List<Employee> employees;
 
     private String name;
     private String description;
     private String location;
 
-
     public Department(String name, String description, String location) {
         this.name = name;
         this.description = description;
         this.location = location;
-        this.employees = new ArrayList<>();
     }
 
-    public Department() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public List<Employee> getEmployees() {
-        return employees;
-    }
 
     @Override
     public String toString() {
