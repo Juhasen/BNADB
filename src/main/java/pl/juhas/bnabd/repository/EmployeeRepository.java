@@ -12,4 +12,5 @@ public interface EmployeeRepository extends CrudRepository<Employee, Long> {
     @Query("SELECT e FROM Employee as e WHERE e.lastName LIKE CONCAT(:letter,'%') ")
     List<Employee> findEmployeeByLastNameStartingWith(@Param("letter") String letter);
 
+    List<Employee> findEmployeesByDepartment_Name(String departmentName);
 }

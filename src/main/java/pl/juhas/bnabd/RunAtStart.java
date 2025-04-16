@@ -10,6 +10,7 @@ import pl.juhas.bnabd.repository.DepartmentRepository;
 import pl.juhas.bnabd.repository.EmployeeRepository;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -27,16 +28,16 @@ public class RunAtStart {
     }
 
 
-    private void showEmployees(){
-        Iterable<Employee> employees =  employeeRepository.findAll();
-        for(Employee employee : employees){
+    private void showEmployees() {
+        Iterable<Employee> employees = employeeRepository.findAll();
+        for (Employee employee : employees) {
             System.out.println(employee);
         }
     }
 
-    private void showDepartments(){
+    private void showDepartments() {
         Iterable<Department> departments = departmentRepository.findAll();
-        for(Department department : departments){
+        for (Department department : departments) {
             System.out.println(department);
         }
     }
@@ -67,6 +68,26 @@ public class RunAtStart {
             departmentRepository.save(department);
             System.out.println("Zaktualizowany department: " + department);
 
+            List<Employee> newEmployees = List.of(
+                    new Employee("Karz", "Warszawa", BigDecimal.valueOf(5000)),
+                    new Employee("Romuald", "Poznański", BigDecimal.valueOf(1000))
+            );
+
+            employeeRepository.saveAll(newEmployees);
+
+            Department javaDepartment = departmentRepository.getDepartmentByName("Java Development");
+            javaDepartment.getEmployees().addAll(newEmployees);
+
+            System.out.println("Zaktualizowany department: " + javaDepartment);
+            departmentRepository.save(javaDepartment);
+
+            System.out.println("Pracujący w Javie:");
+            List<Employee> javaEmployees = employeeRepository.findEmployeesByDepartment_Name("Java Development");
+            System.out.println(javaEmployees);
+
+
+            departmentRepository.delete(department);
+            System.out.println("Usunięto departament");
         };
     }
 }

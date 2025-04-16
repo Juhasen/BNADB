@@ -11,4 +11,6 @@ public interface DepartmentRepository extends CrudRepository<Department, Long> {
     List<Department> findAll();
 
     Department getFirstById(long id);
+
+    Department getDepartmentByName(String name);
 }
