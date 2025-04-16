@@ -1,4 +1,4 @@
-package pl.juhas.bnabd;
+package pl.juhas.bnabd.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
