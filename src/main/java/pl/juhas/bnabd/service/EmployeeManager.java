@@ -1,6 +1,9 @@
 package pl.juhas.bnabd.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import pl.juhas.bnabd.entity.Department;
 import pl.juhas.bnabd.entity.Employee;
@@ -62,5 +65,16 @@ public class EmployeeManager {
 
     public List<Employee> findAllByLastname(String lastName) {
         return employeeRepository.findEmployeesByLastName(lastName);
+    }
+
+    //exercise 2
+    public List<Employee> findAllSortedByLastNameAndSalary() {
+        Sort sort = Sort.by(Sort.Order.asc("lastName"), Sort.Order.desc("salary"));
+        return employeeRepository.findAll(sort);
+    }
+
+    public List<Employee> findTopNEmployeesBySalary(int n) {
+        Pageable pageable = PageRequest.of(0, n, Sort.by(Sort.Order.asc("salary")));
+        return employeeRepository.findAll(pageable).getContent();
     }
 }
