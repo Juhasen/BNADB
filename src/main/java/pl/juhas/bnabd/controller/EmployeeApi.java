@@ -58,9 +58,19 @@ public class EmployeeApi {
         return employeeManager.save(employee);
     }
 
-    @GetMapping("/department/{name}")
+    @GetMapping("/department/name/{name}")
     public List<Employee> getEmployeeByDepartment(@PathVariable("name") String name) {
         return employeeManager.findAllByDepartmentName(name);
+    }
+
+    @GetMapping("/department/id/{id}")
+    public List<Employee> getEmployeeByDepartmentId(@PathVariable("id") Long id) {
+        return employeeManager.findAllByDepartmentId(id);
+    }
+
+    @GetMapping("/lastname/{employeeLastName}")
+    public List<Employee> getEmployeeBySurname(@PathVariable("employeeLastName") String lastName) {
+        return employeeManager.findAllByLastname(lastName);
     }
 
 }

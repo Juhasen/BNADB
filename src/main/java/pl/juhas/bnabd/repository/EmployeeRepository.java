@@ -13,4 +13,8 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
     List<Employee> findEmployeeByLastNameStartingWith(@Param("letter") String letter);
 
     List<Employee> findEmployeesByDepartment_Name(String departmentName);
+
+    List<Employee> findAllByDepartment_Id(Long departmentId);
+
+    List<Employee> findEmployeesByLastName(String lastName);
 }

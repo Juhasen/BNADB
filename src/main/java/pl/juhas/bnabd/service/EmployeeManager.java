@@ -55,4 +55,12 @@ public class EmployeeManager {
         }
         return employee.get();
     }
+
+    public List<Employee> findAllByDepartmentId(Long id) {
+        return employeeRepository.findAllByDepartment_Id(id);
+    }
+
+    public List<Employee> findAllByLastname(String lastName) {
+        return employeeRepository.findEmployeesByLastName(lastName);
+    }
 }
