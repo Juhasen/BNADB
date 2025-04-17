@@ -58,4 +58,9 @@ public class EmployeeApi {
         return employeeManager.save(employee);
     }
 
+    @GetMapping("/department/{name}")
+    public List<Employee> getEmployeeByDepartment(@PathVariable("name") String name) {
+        return employeeManager.findAllByDepartmentName(name);
+    }
+
 }

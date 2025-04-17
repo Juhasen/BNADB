@@ -31,6 +31,10 @@ public class EmployeeManager {
         return employeeRepository.findAll();
     }
 
+    public List<Employee> findAllByDepartmentName(String name) {
+        return employeeRepository.findEmployeesByDepartment_Name(name);
+    }
+
     public Employee save(Employee employee) {
         return employeeRepository.save(employee);
     }

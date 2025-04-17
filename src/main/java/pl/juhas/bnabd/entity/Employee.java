@@ -1,5 +1,6 @@
 package pl.juhas.bnabd.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -18,6 +19,7 @@ public class Employee {
 
     @ManyToOne
     @JoinColumn(name = "department_id")
+    @JsonIgnoreProperties("employees")
     private Department department;
 
     @ManyToOne
