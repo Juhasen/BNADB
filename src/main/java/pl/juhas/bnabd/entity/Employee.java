@@ -32,9 +32,6 @@ public class Employee {
 
     private BigDecimal salary;
 
-    @Version
-    @Column(name = "OPTLOCK")
-    private int versionNum;
 
     @Override
     public String toString() {

@@ -1,6 +1,8 @@
 package pl.juhas.bnabd.controller;
 
 import org.springframework.web.bind.annotation.*;
+import pl.juhas.bnabd.dto.EmpDto;
+import pl.juhas.bnabd.dto.EmpDtoMapper;
 import pl.juhas.bnabd.entity.Employee;
 import pl.juhas.bnabd.service.EmployeeManager;
 
@@ -17,8 +19,9 @@ public class EmployeeApi {
     }
 
     @GetMapping("/all")
-    public List<Employee> getAllEmployees() {
-        return employeeManager.findAll();
+    public List<EmpDto> getAllEmployees() {
+        List<Employee> employees = employeeManager.findAll();
+        return EmpDtoMapper.listToDto(employees);
     }
 
     @GetMapping("/id")
